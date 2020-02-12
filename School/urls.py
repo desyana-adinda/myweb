@@ -1,4 +1,4 @@
-"""my_project URL Configuration
+"""School URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,10 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic import TemplateView
+from django.conf import settings
+from django.contrib.auth.views import LogoutView
+from login import views as views_main
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name="social_app/index.html")),
-    path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
+    path('admin/', admin.site.urls, name='administrator'),
+    path('', include('social_django.urls', namespace='social')),
+    path('', views_main.index, name='index'),
+    path(
+        'logout/',
+        LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
+        name='logout'
+        ),
 ]
