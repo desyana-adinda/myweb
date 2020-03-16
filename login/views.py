@@ -9,3 +9,11 @@ def index(request):
     }
 
     return render(request, 'blog/index.html', context)
+
+def admin_login(request):
+    context = {
+        'posts': Post.objects.order_by('-pk')
+        if request.user.is_authenticated else []
+    }
+
+    return render(request, 'blog/admin_login.html', context)

@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='administrator'),
     path('', include('social_django.urls', namespace='social')),
     path('', views_main.index, name='index'),
+    path('logadm/', views_main.admin_login , name='admin_login'),
     path(
         'logout/',
         LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
