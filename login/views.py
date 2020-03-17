@@ -16,4 +16,4 @@ def admin_login(request):
         if request.user.is_authenticated else []
     }
 
-    return render(request, 'blog/admin_login.html', context)
+    return render(request, 'blog/admin/index.html', context)

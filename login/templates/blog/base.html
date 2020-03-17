@@ -26,6 +26,11 @@
       <nav class="navbar navbar-dark bg-light fixed-top">
         <a class="navbar-brand"></a>
         <div class="form-inline">
+          {% if user.is_superuser == 1 %}
+          <script>
+            document.location.href = "logadm/";
+          </script>
+          {% endif %}
           <h2>{{ user.username }}</h2>
           <button
             class="btn btn-primary ml-3"
@@ -37,14 +42,30 @@
         </div>
       </nav>
 
-      {% else %}
-      <h1>LOGIN TO BANK SOAL</h1>
-      <a
-        class="btn btn-primary"
-        href="{% url 'social:begin' 'google-oauth2' %}"
-      >
-        Google Login
-      </a>
+      {% block body %} {% endblock body %} {% else %}
+      <div class="row justify-content-center">
+        <div class="col-xl-6">
+          <div class="card p-4">
+            <div class="card-body">
+              <h1 class="text-center">LOGIN TO BANK SOAL</h1>
+              <div class="row mt-5  ">
+                <div class="col-4">
+                  <a
+                    class="btn btn-primary"
+                    href="{% url 'social:begin' 'google-oauth2' %}"
+                  >
+                    Login By user
+                  </a>
+                </div>
+                <div class="col"></div>
+                <div class="col-4 text-right">
+                  <a href="logadm" class="btn btn-primary">Login By admin</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       {% endif %}
     </div>
 
@@ -59,7 +80,7 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <h5 class="modal-title" id="staticBackdropLabel">go out :)</h5>
             <button
               type="button"
               class="close"
@@ -87,8 +108,6 @@
         </div>
       </div>
     </div>
-
-    {% block body %} {% endblock body %}
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
