@@ -1,0 +1,50 @@
+{% extends 'blog/admin_login.html' %}
+
+{% block body %}
+
+<h1>.</h1>
+<div class="container mt-5">
+    <div class="card p-3">
+        <div class="card-body p-2">
+            <form>
+                <div class="form-group row">
+                    <textarea rows="5" class="form-control m-3" id="inputPassword3"
+                        placeholder="Masukkan Soal ..."></textarea>
+                </div>
+                <p class="h4">Pilih jawaban yang benar !!</p>
+                <div class="row mt-3">
+                    <div class="form-group form-check col-6">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio1">a.</label>
+                            <input type="text" id="jawaban1" name="jawaban1" class="form-control"
+                                placeholder="masukkan jawaban ...">
+                        </div>
+                        <div class="custom-control custom-radio mt-3    ">
+                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio2">b.</label>
+                            <input type="text" id="jawaban2" name="jawaban2" class="form-control"
+                                placeholder="masukkan jawaban ...">
+                        </div>
+                    </div>
+                    <div class="form-group form-check col-6">
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio3">c.</label>
+                            <input type="text" id="jawaban3" name="jawaban3" class="form-control"
+                                placeholder="masukkan jawaban ...">
+                        </div>
+                        <div class="custom-control custom-radio mt-3    ">
+                            <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
+                            <label class="custom-control-label" for="customRadio4">d.</label>
+                            <input type="text" id="jawaban4" name="jawaban4" class="form-control"
+                                placeholder="masukkan jawaban ...">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}
