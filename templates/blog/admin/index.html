@@ -1,0 +1,54 @@
+{% extends 'admin_base.html' %}
+
+{% block title %}
+Daftar Soal
+{% endblock title %}
+
+ {% block body %}
+<div class="container-fluid">
+  <div class="card shadow mb-3">
+    <div class="card-header py-3">
+      <h5 class="m-0 font-weight-bold text-primary">Daftar Soal</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Soal</th>
+              <th scope="col">Pilihan</th>
+              <th scope="col">Jawaban benar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <a href="../admin/input" class="btn btn-info">input</a>
+  <button type="button" class="btn btn-info">post</button>
+  <button type="button" class="btn btn-info">update</button>
+  <button type="button" class="btn btn-info">delete</button>
+</div>
+
+{% endblock body %}
