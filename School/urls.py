@@ -30,7 +30,7 @@ urlpatterns = [
         LogoutView.as_view(template_name=settings.LOGOUT_REDIRECT_URL),
         name='logout'
     ),
-    url('admin/', include('Guru.urls')),
+    url('adm/', include('Guru.urls')),
     url(r"^user/", include('Murid.urls')),
 
 ]

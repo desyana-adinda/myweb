@@ -4,7 +4,7 @@
 Daftar Soal
 {% endblock title %}
 
- {% block body %}
+{% block body %}
 <div class="container-fluid">
   <div class="card shadow mb-3">
     <div class="card-header py-3">
@@ -42,13 +42,14 @@ Daftar Soal
             </tr>
           </tbody>
         </table>
+        <div class="mt-4">
+          <a href="../adm/input" class="btn btn-info">input</a>
+          <button type="button" class="btn btn-warning">update</button>
+          <button type="button" class="btn btn-danger">delete</button>
+        </div>
       </div>
     </div>
   </div>
-  <a href="../admin/input" class="btn btn-info">input</a>
-  <button type="button" class="btn btn-info">post</button>
-  <button type="button" class="btn btn-info">update</button>
-  <button type="button" class="btn btn-info">delete</button>
 </div>
 
 {% endblock body %}
