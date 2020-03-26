@@ -1,56 +1,61 @@
 {% extends 'admin_base.html' %}
 
+
 {% block title %}
 Input Soal
 {% endblock title %}
 
 {% block body %}
 
-<div class="container-fluid mt-5">
-    <div class="card shadow">
+<div class="container-fluid">
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h5 class="m-0 font-weight-bold text-primary">Input Soal</h5>
         </div>
-        <div class="card-body p-3">
-            <form>
-                <div class="form-group row">
-                    <textarea rows="5" class="form-control m-3" id="inputPassword3"
-                        placeholder="Masukkan Soal ..."></textarea>
+        <div class="card-body p-4">
+            <form method="POST" action="/adm/input/">
+                {% csrf_token %}
+                <!-- <div class="mb-3 text-danger">{{form.errors}}</div> -->
+                <h5>Masukkan Soal: </h5>
+                <div class="mb-3">
+                    {{ form.Soal}}
                 </div>
-                <p class="h4">Pilih jawaban yang benar !!</p>
+                <p class="h5">Masukkan Semua Pilihan Jawaban !!</p>
                 <div class="row mt-3">
-                    <div class="form-group form-check col-6">
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio1">a.</label>
-                            <input type="text" id="jawaban1" name="jawaban1" class="form-control"
-                                placeholder="masukkan jawaban ...">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="id_jawab1" class="col-sm-2 col-form-label">Jawab1</label>
+                            <div class="col-sm-10">
+                                {{form.jawab1}}
+                            </div>
                         </div>
-                        <div class="custom-control custom-radio mt-3    ">
-                            <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio2">b.</label>
-                            <input type="text" id="jawaban2" name="jawaban2" class="form-control"
-                                placeholder="masukkan jawaban ...">
+                        <div class="form-group row">
+                            <label for="id_jawab2" class="col-sm-2 col-form-label">Jawab2</label>
+                            <div class="col-sm-10">
+                                {{form.jawab2}}
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group form-check col-6">
-                        <div class="custom-control custom-radio">
-                            <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio3">c.</label>
-                            <input type="text" id="jawaban3" name="jawaban3" class="form-control"
-                                placeholder="masukkan jawaban ...">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label for="id_jawab3" class="col-sm-2 col-form-label">Jawab3</label>
+                            <div class="col-sm-10">
+                                {{form.jawab3}}
+                            </div>
                         </div>
-                        <div class="custom-control custom-radio mt-3    ">
-                            <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-                            <label class="custom-control-label" for="customRadio4">d.</label>
-                            <input type="text" id="jawaban4" name="jawaban4" class="form-control"
-                                placeholder="masukkan jawaban ...">
+                        <div class="form-group row mt-3">
+                            <label for="id_jawab4" class="col-sm-2 col-form-label">Jawab4</label>
+                            <div class="col-sm-10">
+                                {{form.jawab4}}
+                            </div>
                         </div>
                     </div>
                 </div>
+                <h5>Masukkan Jawaban Benar</h5>
+                {{form.sbenar}}
                 <div class="text-right mb-3">
-                    <button type="button" class="btn btn-info">Post</button>
-                    <a href="../../" class="btn btn-danger">Kembali</a>
+                    <button type="submit" class="btn btn-info">Post</button>
+                    <a href="/" class="btn btn-danger">Kembali</a>
                 </div>
             </form>
         </div>

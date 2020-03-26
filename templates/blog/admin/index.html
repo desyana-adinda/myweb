@@ -6,7 +6,7 @@ Daftar Soal
 
 {% block body %}
 <div class="container-fluid">
-  <div class="card shadow mb-3">
+  <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h5 class="m-0 font-weight-bold text-primary">Daftar Soal</h5>
     </div>
@@ -19,33 +19,33 @@ Daftar Soal
               <th scope="col">Soal</th>
               <th scope="col">Pilihan</th>
               <th scope="col">Jawaban benar</th>
+              <th scope="col">Aksi</th>
             </tr>
           </thead>
           <tbody>
+            {% for dt in data.soal %}
             <tr>
-              <th scope="row">1</th>
-              <td></td>
-              <td></td>
-              <td></td>
+              <th scope="row">{{dt.sid}}</th>
+              <td>{{dt.Soal}} </td>
+              <td>
+                <ol type='A'>
+                  <li>{{dt.jawab1}} </li>
+                  <li>{{dt.jawab2}} </li>
+                  <li>{{dt.jawab3}} </li>
+                  <li>{{dt.jawab4}} </li>
+                </ol>
+              </td>
+              <td>{{dt.sbenar}} </td>
+              <td class="text-white text-center">
+                <a class="btn badge badge-warning" href="#"><i class="fas fa-fw fa-edit"></i> Edit</a>
+                <a class="btn badge badge-danger" href="#"><i class="fas fa-fw fa-trash"></i> Delete</a>|
+              </td>
             </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+            {% endfor %}
           </tbody>
         </table>
         <div class="mt-4">
-          <a href="../adm/input" class="btn btn-info">input</a>
-          <button type="button" class="btn btn-warning">update</button>
-          <button type="button" class="btn btn-danger">delete</button>
+          <a href="../adm/input" class="btn btn-outline-info"><i class="fas fa-fw fa-plus-square"> </i>Tambah Soal</a>
         </div>
       </div>
     </div>

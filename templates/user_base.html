@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>LOGIN TO BANK SOAL</title>
+  <title>User BANK SOAL</title>
   <link rel="shortcut icon" href="{% static 'img/buku.png' %}" type="image/x-icon" />
 
   <!-- Custom fonts for this template-->
@@ -21,19 +21,19 @@
 
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-  <div class="jumbotron">
-    {% if user.is_authenticated %}
-        {% if user.is_superuser == 1 %}
-        <script>
-          document.location.href = "logadm/";
-        </script>
-        {% endif %}
-      {% include 'navbar/admin_navbar.html' %}
-  <!-- Topbar -->
+  {% if user.first_name == null %}
+    <script>
+      document.location.href = "{% url 'login' %}";
+    </script>
+  {% endif %}
+      
+  {% include 'navbar/admin_navbar.html' %}
+<!-- Topbar -->
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
@@ -103,54 +103,28 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  {% else %}
-    <div class="row justify-content-center">
-      <div class="col-xl-7">
-        <div class="card p-4">
-          <div class="card-body">
-            <h1 class="text-center">LOGIN TO BANK SOAL</h1>
-            <div class="row mt-5  ">
-              <div class="col-4">
-                <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Login with Google
-                </a>
-              </div>
-              <div class="col"></div>
-              <div class="col-4 text-right">
-                <a href="logadm" class="btn btn-primary">Login By admin</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endif %}
-  </div>
 
-  <div class="modal fade bd-example-modal-sm" id="modalProfile" tabindex="-1" role="dialog"
-    aria-labelledby="mySmallModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="document">
+  
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">go out :)</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
           </button>
         </div>
-        <div class="modal-body">
-          <p>Ready? to logout!!</p>
-        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">
-            Close
-          </button>
-          <a class="btn btn-primary" href="{% url 'logout' %}">
-            Logout
-          </a>
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
         </div>
       </div>
     </div>
   </div>
+
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -161,6 +135,13 @@
 
   <!-- Custom scripts for all pages-->
   <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+
+  <!-- Page level plugins -->
+  <script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %} "></script>
+  <script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %} "></script>
+
+  <!-- Page level custom scripts -->
+  <script src="{% static 'js/demo/datatables-demo.js' %} "></script>
 
 </body>
 

@@ -23,7 +23,7 @@ from login import views as views_auth
 urlpatterns = [
     path('admin/', admin.site.urls, name='administrator'),
     path('', include('social_django.urls', namespace='social')),
-    path('', views_auth.index, name='index'),
+    path('', views_auth.index, name='login'),
     path('logadm/', views_auth.admin_login, name='admin_login'),
     path(
         'logout/',

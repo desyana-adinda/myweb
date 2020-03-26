@@ -10,8 +10,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <title>Admin BANK SOAL</title>
   <link rel="shortcut icon" href="{% static 'img/buku.png' %}" type="image/x-icon" />
-  <title>Admin Bank Soal</title>
+
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
   <link
@@ -20,20 +21,20 @@
 
   <!-- Custom styles for this template-->
   <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-
   <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css' %}" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
-  {% if user.is_authenticated %}
-  {% if user.is_superuser == 0 %}
-  <script>
-    document.location.href = "/";
-  </script>
+
+  {% if request.session.session_key == '' %}
+    <script>
+      document.location.href = "{% url 'login' %}";
+    </script>
   {% endif %}
-  {% include 'navbar/admin_navbar.html' %}
-  <!-- Topbar -->
+
+      {% include 'navbar/admin_navbar.html' %}
+<!-- Topbar -->
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
     <!-- Sidebar Toggle (Topbar) -->
@@ -43,9 +44,8 @@
 
     <div class="ml-3 nav-item">
       <h1 class="h3 font-weight-bold mb-2 text-gray-800">
-        {% block title %}
-        {% endblock title %}
-      </h1>
+      {% block title %}
+      {% endblock title %}</h1>
     </div>
     <!-- Topbar Navbar -->
     <ul class="navbar-nav ml-auto">
@@ -104,31 +104,8 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-  {% else %}
-  <div class="container">
-    <div class="row justify-content-center mt-5">
-      <div class="col-md-8 mt-5">
-        <div class="card bg-light p-3">
-          <div class="card-body">
-            <h1 class="text-center">LOGIN TO ADMIN BANK SOAL</h1>
-            <div class="row mt-5">
-              <div class="col-5">
-                <a href="{% url 'social:begin' 'google-oauth2' %}" class="btn btn-google btn-user btn-block">
-                  <i class="fab fa-google fa-fw"></i> Login with Google
-                </a>
-              </div>
-              <div class="col"></div>
-              <div class="col-4 text-right">
-                <a href="/" class="btn btn-primary">Login By User</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endif %}
 
+  
   <!-- Logout Modal-->
   <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -143,7 +120,7 @@
         <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
         <div class="modal-footer">
           <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="../logout/">Logout</a>
+          <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
         </div>
       </div>
     </div>

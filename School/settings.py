@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-    'login'
+    'crispy_forms',
+    'login',
+    'Guru',
+    'Murid'
 ]
 
 MIDDLEWARE = [
@@ -138,6 +141,7 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_URL = '/auth/login/google-oauth2/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'

@@ -6,7 +6,7 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center" href="">
+        <a class="sidebar-brand d-flex align-items-center" href="{% url 'guru' %}">
             <img class="rounded-circle img-profile float-left" src="{% static 'img/buku.png' %}" width="50" />
             <div class="sidebar-brand-text mx-3">Bank Soal</div>
         </a>
@@ -15,22 +15,22 @@
         <hr class="sidebar-divider my-0">
         <!-- Heading -->
         <div class="sidebar-heading">
-            <i class="fas fa-fw fa-users-cog"></i>
-            Barang
+            <i class="fas fa-fw fa-book"></i>
+            Soal
         </div>
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url($jenis . '/') ?>">
+            <a class="nav-link" href="{% url 'guru' %}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
 
 
         <li class="nav-item mt-n3">
-            <a class="nav-link" href="<?= base_url('admin/add_item'); ?>">
-                <i class="fas fa-fw fa-plus-circle"></i>
-                <span>Add Item</span>
+            <a class="nav-link" href="{% url 'tambah' %}">
+                <i class="fas fa-fw fa-plus-square"></i>
+                <span>Tambah Soal</span>
             </a>
         </li>
 
@@ -39,22 +39,15 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            <i class="fas fa-fw fa-users-cog"></i>
-            Users
+            <i class="fas fa-fw fa-book-open"></i>
+            Nilai
         </div>
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
-            <a class="nav-link" href="<?= base_url('auth/registration') ?>">
-                <i class="fas fa-fw fa-user-plus"></i>
-                <span>Registration</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item mt-n3">
-            <a class="nav-link" href="<?= base_url('admin/list_user') ?>">
-                <i class="fas fa-fw fa-users"></i>
-                <span>List Users</span></a>
+            <a class="nav-link" href="">
+                <i class="fas fa-fw fa-book-reader"></i>
+                <span>Daftar Nilai</span></a>
         </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">

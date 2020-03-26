@@ -8,7 +8,7 @@ def index(request):
         if request.user.is_authenticated else []
     }
 
-    return render(request, 'blog/user/index.html', context)
+    return render(request, 'user_login.html', context)
 
 
 def admin_login(request):
@@ -17,4 +17,4 @@ def admin_login(request):
         if request.user.is_authenticated else []
     }
 
-    return render(request, 'blog/admin/index.html', context)
+    return render(request, 'admin_login.html', context)
