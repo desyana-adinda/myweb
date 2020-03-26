@@ -26,12 +26,12 @@
 </head>
 
 <body id="page-top">
-  {% if user.first_name == null %}
+  {% if user.is_authenticated %}
+  {% if user.is_superuser == 1 %}
     <script>
-      document.location.href = "{% url 'login' %}";
+      document.location.href = "{% url 'guru' %}";
     </script>
   {% endif %}
-      
   {% include 'navbar/admin_navbar.html' %}
 <!-- Topbar -->
   <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
@@ -124,6 +124,11 @@
       </div>
     </div>
   </div>
+  {% else %}
+  <script>
+    document.location.href = "{% url 'login' %}";
+  </script>
+  {% endif %}
 
 
   <!-- Bootstrap core JavaScript-->

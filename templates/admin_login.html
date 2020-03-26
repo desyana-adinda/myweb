@@ -29,7 +29,7 @@
   {% if user.is_authenticated %}
     {% if user.is_superuser == 0 %}
     <script>
-      document.location.href = "{% url 'login' %}";
+      document.location.href = "{% url 'murid' %}";
     </script>
     {% else %}
     <script>
