@@ -3,5 +3,6 @@ from Guru import views
 
 urlpatterns = [
     path("input/", views.input, name='tambah'),
-    path("", views.index, name='guru')
+    path("", views.index, name='guru'),
+    path("nilai/", views.daftar, name="daftar_nilai")
 ]

@@ -5,6 +5,7 @@ from django.db import models
 
 class Soal(models.Model):
     sid = models.AutoField(primary_key=True)
+    user_made = models.IntegerField()
     Soal = models.TextField(max_length=500)
     jawab1 = models.CharField(max_length=128)
     jawab2 = models.CharField(max_length=128)
@@ -14,3 +15,14 @@ class Soal(models.Model):
 
     class Meta:
         db_table = "soal"
+
+
+class Kunci(models.Model):
+    kid = models.AutoField(primary_key=True)
+    A = models.CharField(max_length=20)
+    B = models.CharField(max_length=20)
+    C = models.CharField(max_length=20)
+    D = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = "kunci"

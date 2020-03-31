@@ -29,11 +29,11 @@
     {% if user.is_authenticated %}
         {% if user.is_superuser == 1 %}
         <script>
-          document.location.href = "{% url 'admin_login' %}";
+          document.location.href = "{% url 'guru' %}";
         </script>
         {% else %}
           <script>
-          document.location.href = "{% url 'user' %}";
+          document.location.href = "{% url 'murid' %}";
         </script>
         {% endif %}
   {% else %}

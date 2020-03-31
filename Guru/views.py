@@ -23,3 +23,7 @@ def index(request):
         if request.user.is_authenticated else []
     }
     return render(request, 'blog/admin/index.html', {'data': context})
+
+
+def daftar(request):
+    return render(request, 'blog/admin/daftar_nilai.html')

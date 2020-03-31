@@ -3,6 +3,8 @@ from Guru.models import Soal
 
 
 class SoalForm(forms.Form):
+    user_made = forms.IntegerField(widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Masukkan Jawaban...', 'value': '{{user.id}}'}))
     Soal = forms.CharField(widget=forms.Textarea(
         attrs={'class': 'form-control', 'placeholder': 'Masukkan Soal...'}), required=True)
     jawab1 = forms.CharField(widget=forms.TextInput(
