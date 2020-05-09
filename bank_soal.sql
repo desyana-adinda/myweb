@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 04:36 AM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.7
+-- Generation Time: May 09, 2020 at 04:26 PM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `auth_group` (
   `id` int(11) NOT NULL,
   `name` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,7 +43,7 @@ CREATE TABLE `auth_group_permissions` (
   `id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -56,7 +56,7 @@ CREATE TABLE `auth_permission` (
   `name` varchar(255) NOT NULL,
   `content_type_id` int(11) NOT NULL,
   `codename` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `auth_permission`
@@ -110,7 +110,15 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (45, 'Can add post', 12, 'add_post'),
 (46, 'Can change post', 12, 'change_post'),
 (47, 'Can delete post', 12, 'delete_post'),
-(48, 'Can view post', 12, 'view_post');
+(48, 'Can view post', 12, 'view_post'),
+(49, 'Can add soal', 13, 'add_soal'),
+(50, 'Can change soal', 13, 'change_soal'),
+(51, 'Can delete soal', 13, 'delete_soal'),
+(52, 'Can view soal', 13, 'view_soal'),
+(53, 'Can add kunci', 14, 'add_kunci'),
+(54, 'Can change kunci', 14, 'change_kunci'),
+(55, 'Can delete kunci', 14, 'delete_kunci'),
+(56, 'Can view kunci', 14, 'view_kunci');
 
 -- --------------------------------------------------------
 
@@ -130,15 +138,16 @@ CREATE TABLE `auth_user` (
   `is_staff` tinyint(1) NOT NULL,
   `is_active` tinyint(1) NOT NULL,
   `date_joined` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, '!7StkfXfORqaprsHuTuXv9huzLNddlFaHUmOqoSoV', '2020-03-16 03:30:25.179079', 0, 'helnakurniawati91', 'Helna', 'Kurniawati', 'helnakurniawati91@gmail.com', 0, 1, '2020-03-16 03:30:24.648405'),
-(2, 'pbkdf2_sha256$150000$MezolQ6W9i8f$HaBhzyp9jsXsGAwG4H0EykEAAWLv119zpoDoPZgpApA=', '2020-03-16 03:33:24.989897', 1, 'helna', '', '', 'helna@gmail.com', 1, 1, '2020-03-16 03:32:53.887591');
+(1, '!O7C7aDwBuZJLRaVckdG1jwo3Wf8h9Vh8cFSChnhe', '2020-05-09 14:14:44.831624', 0, 'agus21apy', 'Agus', 'Prayogi', 'agus21apy@gmail.com', 1, 1, '2020-04-09 04:07:03.655313'),
+(3, '!K3vetWFXDrsSEY1teGsiiwdrsydFv3RwxYsUN4sw', '2020-04-09 06:18:39.560524', 0, 'agusyogi600', 'Yogi', 'APY', 'agusyogi600@gmail.com', 0, 1, '2020-04-09 06:18:39.473613'),
+(4, 'pbkdf2_sha256$150000$EB6enyooKVS8$h1HkIj6DSmZPsbW9iR8khtM3ysqtF0O2ligFt/N8wAM=', NULL, 1, 'agus', '', '', 'agus@gmail.com', 1, 1, '2020-04-09 06:24:06.832566');
 
 -- --------------------------------------------------------
 
@@ -150,7 +159,7 @@ CREATE TABLE `auth_user_groups` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -162,7 +171,7 @@ CREATE TABLE `auth_user_user_permissions` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `permission_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -179,7 +188,7 @@ CREATE TABLE `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -191,7 +200,7 @@ CREATE TABLE `django_content_type` (
   `id` int(11) NOT NULL,
   `app_label` varchar(100) NOT NULL,
   `model` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `django_content_type`
@@ -203,6 +212,8 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
 (5, 'contenttypes', 'contenttype'),
+(14, 'Guru', 'kunci'),
+(13, 'Guru', 'soal'),
 (12, 'login', 'post'),
 (6, 'sessions', 'session'),
 (7, 'social_django', 'association'),
@@ -222,48 +233,50 @@ CREATE TABLE `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `django_migrations`
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2020-03-16 03:24:48.795748'),
-(2, 'auth', '0001_initial', '2020-03-16 03:24:53.874359'),
-(3, 'admin', '0001_initial', '2020-03-16 03:25:05.544289'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2020-03-16 03:25:08.051745'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-03-16 03:25:08.191658'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2020-03-16 03:25:10.605174'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2020-03-16 03:25:10.771071'),
-(8, 'auth', '0003_alter_user_email_max_length', '2020-03-16 03:25:10.926976'),
-(9, 'auth', '0004_alter_user_username_opts', '2020-03-16 03:25:10.974947'),
-(10, 'auth', '0005_alter_user_last_login_null', '2020-03-16 03:25:11.882359'),
-(11, 'auth', '0006_require_contenttypes_0002', '2020-03-16 03:25:11.914228'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2020-03-16 03:25:11.982185'),
-(13, 'auth', '0008_alter_user_username_max_length', '2020-03-16 03:25:12.104109'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2020-03-16 03:25:12.261014'),
-(15, 'auth', '0010_alter_group_name_max_length', '2020-03-16 03:25:12.671760'),
-(16, 'auth', '0011_update_proxy_permissions', '2020-03-16 03:25:12.746714'),
-(17, 'login', '0001_initial', '2020-03-16 03:25:13.233414'),
-(18, 'sessions', '0001_initial', '2020-03-16 03:25:14.784256'),
-(19, 'default', '0001_initial', '2020-03-16 03:25:17.315899'),
-(20, 'social_auth', '0001_initial', '2020-03-16 03:25:17.369070'),
-(21, 'default', '0002_add_related_name', '2020-03-16 03:25:21.636476'),
-(22, 'social_auth', '0002_add_related_name', '2020-03-16 03:25:21.670299'),
-(23, 'default', '0003_alter_email_max_length', '2020-03-16 03:25:21.751047'),
-(24, 'social_auth', '0003_alter_email_max_length', '2020-03-16 03:25:21.847459'),
-(25, 'default', '0004_auto_20160423_0400', '2020-03-16 03:25:21.918027'),
-(26, 'social_auth', '0004_auto_20160423_0400', '2020-03-16 03:25:21.948059'),
-(27, 'social_auth', '0005_auto_20160727_2333', '2020-03-16 03:25:22.328499'),
-(28, 'social_django', '0006_partial', '2020-03-16 03:25:22.589596'),
-(29, 'social_django', '0007_code_timestamp', '2020-03-16 03:25:22.975411'),
-(30, 'social_django', '0008_partial_timestamp', '2020-03-16 03:25:23.465661'),
-(31, 'social_django', '0003_alter_email_max_length', '2020-03-16 03:25:23.731188'),
-(32, 'social_django', '0005_auto_20160727_2333', '2020-03-16 03:25:23.758789'),
-(33, 'social_django', '0001_initial', '2020-03-16 03:25:23.836313'),
-(34, 'social_django', '0004_auto_20160423_0400', '2020-03-16 03:25:23.913561'),
-(35, 'social_django', '0002_add_related_name', '2020-03-16 03:25:23.969987');
+(1, 'Guru', '0001_initial', '2020-04-09 03:48:33.904149'),
+(2, 'contenttypes', '0001_initial', '2020-04-09 03:48:33.975148'),
+(3, 'auth', '0001_initial', '2020-04-09 03:48:34.326150'),
+(4, 'admin', '0001_initial', '2020-04-09 03:48:35.110009'),
+(5, 'admin', '0002_logentry_remove_auto_add', '2020-04-09 03:48:35.310883'),
+(6, 'admin', '0003_logentry_add_action_flag_choices', '2020-04-09 03:48:35.325875'),
+(7, 'contenttypes', '0002_remove_content_type_name', '2020-04-09 03:48:35.428873'),
+(8, 'auth', '0002_alter_permission_name_max_length', '2020-04-09 03:48:35.532874'),
+(9, 'auth', '0003_alter_user_email_max_length', '2020-04-09 03:48:35.562874'),
+(10, 'auth', '0004_alter_user_username_opts', '2020-04-09 03:48:35.574874'),
+(11, 'auth', '0005_alter_user_last_login_null', '2020-04-09 03:48:35.674874'),
+(12, 'auth', '0006_require_contenttypes_0002', '2020-04-09 03:48:35.678875'),
+(13, 'auth', '0007_alter_validators_add_error_messages', '2020-04-09 03:48:35.706874'),
+(14, 'auth', '0008_alter_user_username_max_length', '2020-04-09 03:48:35.755872'),
+(15, 'auth', '0009_alter_user_last_name_max_length', '2020-04-09 03:48:35.779875'),
+(16, 'auth', '0010_alter_group_name_max_length', '2020-04-09 03:48:35.812875'),
+(17, 'auth', '0011_update_proxy_permissions', '2020-04-09 03:48:35.829877'),
+(18, 'login', '0001_initial', '2020-04-09 03:48:35.904881'),
+(19, 'sessions', '0001_initial', '2020-04-09 03:48:35.950875'),
+(20, 'default', '0001_initial', '2020-04-09 03:48:36.208291'),
+(21, 'social_auth', '0001_initial', '2020-04-09 03:48:36.211258'),
+(22, 'default', '0002_add_related_name', '2020-04-09 03:48:36.508301'),
+(23, 'social_auth', '0002_add_related_name', '2020-04-09 03:48:36.513303'),
+(24, 'default', '0003_alter_email_max_length', '2020-04-09 03:48:36.532500'),
+(25, 'social_auth', '0003_alter_email_max_length', '2020-04-09 03:48:36.537572'),
+(26, 'default', '0004_auto_20160423_0400', '2020-04-09 03:48:36.550572'),
+(27, 'social_auth', '0004_auto_20160423_0400', '2020-04-09 03:48:36.554485'),
+(28, 'social_auth', '0005_auto_20160727_2333', '2020-04-09 03:48:36.578486'),
+(29, 'social_django', '0006_partial', '2020-04-09 03:48:36.631486'),
+(30, 'social_django', '0007_code_timestamp', '2020-04-09 03:48:36.684482'),
+(31, 'social_django', '0008_partial_timestamp', '2020-04-09 03:48:36.739483'),
+(32, 'social_django', '0004_auto_20160423_0400', '2020-04-09 03:48:36.763483'),
+(33, 'social_django', '0002_add_related_name', '2020-04-09 03:48:36.767482'),
+(34, 'social_django', '0005_auto_20160727_2333', '2020-04-09 03:48:36.770482'),
+(35, 'social_django', '0003_alter_email_max_length', '2020-04-09 03:48:36.773484'),
+(36, 'social_django', '0001_initial', '2020-04-09 03:48:36.780483'),
+(37, 'Guru', '0001_squashed_0001_initial', '2020-04-11 16:27:22.921998');
 
 -- --------------------------------------------------------
 
@@ -275,14 +288,29 @@ CREATE TABLE `django_session` (
   `session_key` varchar(40) NOT NULL,
   `session_data` longtext NOT NULL,
   `expire_date` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `django_session`
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('lme62f6qe2v76ytx6mnvufdjmfcm6guv', 'OGRjMmIzZDc5OTc3NjE4MGJlNTE2ODEwZjExMDA3YzBkNDkyYjgzMTp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwOWM0MjQ1OWUzNDQ0MGM4NGY5ZDU0ZjM3ZjVmZTQyYjFkZTNmMjk5In0=', '2020-03-30 03:33:25.101250');
+('8qiu4tql5oycrboavb3dy7by1yiryyjy', 'YjY0YTY0ZDFlZmRlMjk3OGU2YzZkMGRjZmE1NzhhODA1M2YzNDc5OTp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJNUFRac0VFcG9xOXBhWjd0c2puQzlOWmlGVHYyaDRnbiIsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsX2NvcmUuYmFja2VuZHMuZ29vZ2xlLkdvb2dsZU9BdXRoMiIsIl9hdXRoX3VzZXJfaGFzaCI6IjNhODc2MjNlNzVlNGI1NDdlYmZlM2ZmOTEwODg3ODhkMGVmZmIxMzgiLCJzb2NpYWxfYXV0aF9sYXN0X2xvZ2luX2JhY2tlbmQiOiJnb29nbGUtb2F1dGgyIn0=', '2020-05-23 14:14:44.837246'),
+('8texcf856h3guz2s6bbpwtlnw9jbkeah', 'NWY5N2Y4MjUyNWNiZjNmNGMzNzAyNmU0N2Q5MDlmMjgyMjkyODllZTp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJZb0IzVUFIbHJBdWRpSkJYaVpIajRQNkthd0p3RDduZCIsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsX2NvcmUuYmFja2VuZHMuZ29vZ2xlLkdvb2dsZU9BdXRoMiIsIl9hdXRoX3VzZXJfaGFzaCI6IjNhODc2MjNlNzVlNGI1NDdlYmZlM2ZmOTEwODg3ODhkMGVmZmIxMzgiLCJzb2NpYWxfYXV0aF9sYXN0X2xvZ2luX2JhY2tlbmQiOiJnb29nbGUtb2F1dGgyIn0=', '2020-04-23 06:21:17.441685');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kunci`
+--
+
+CREATE TABLE `kunci` (
+  `kid` int(11) NOT NULL,
+  `A` varchar(20) NOT NULL,
+  `B` varchar(20) NOT NULL,
+  `C` varchar(20) NOT NULL,
+  `D` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -295,7 +323,31 @@ CREATE TABLE `login_post` (
   `title` varchar(100) NOT NULL,
   `contest` longtext DEFAULT NULL,
   `data` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `soal`
+--
+
+CREATE TABLE `soal` (
+  `sid` int(11) NOT NULL,
+  `user_made` int(11) NOT NULL,
+  `Soal` longtext NOT NULL,
+  `jawab1` varchar(128) NOT NULL,
+  `jawab2` varchar(128) NOT NULL,
+  `jawab3` varchar(128) NOT NULL,
+  `jawab4` varchar(128) NOT NULL,
+  `sbenar` varchar(128) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `soal`
+--
+
+INSERT INTO `soal` (`sid`, `user_made`, `Soal`, `jawab1`, `jawab2`, `jawab3`, `jawab4`, `sbenar`) VALUES
+(1, 1, 'aku cinta kamu??', 'devi', 'helna', 'desiana', 'rosela', 'B');
 
 -- --------------------------------------------------------
 
@@ -311,7 +363,7 @@ CREATE TABLE `social_auth_association` (
   `issued` int(11) NOT NULL,
   `lifetime` int(11) NOT NULL,
   `assoc_type` varchar(64) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -325,7 +377,7 @@ CREATE TABLE `social_auth_code` (
   `code` varchar(32) NOT NULL,
   `verified` tinyint(1) NOT NULL,
   `timestamp` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -338,7 +390,7 @@ CREATE TABLE `social_auth_nonce` (
   `server_url` varchar(255) NOT NULL,
   `timestamp` int(11) NOT NULL,
   `salt` varchar(65) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -353,7 +405,7 @@ CREATE TABLE `social_auth_partial` (
   `backend` varchar(32) NOT NULL,
   `data` longtext NOT NULL,
   `timestamp` datetime(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -367,14 +419,15 @@ CREATE TABLE `social_auth_usersocialauth` (
   `uid` varchar(255) NOT NULL,
   `extra_data` longtext NOT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `social_auth_usersocialauth`
 --
 
 INSERT INTO `social_auth_usersocialauth` (`id`, `provider`, `uid`, `extra_data`, `user_id`) VALUES
-(1, 'google-oauth2', 'helnakurniawati91@gmail.com', '{\"auth_time\": 1584329424, \"expires\": 3599, \"token_type\": \"Bearer\", \"access_token\": \"ya29.a0Adw1xeVvFwrsiVv_IeKbuWTehuQebRUdtGIeGY3oT4ntM3MGrjLoI-GTmCrg8YyVkHWsmAuOPRk4B5d0m7bXFcbGor2m0-Q6YgUwKTrwc6u1JkzWi5rspYuewIwEoXnWI4F_lH4r0NlrzJtnQd4YJc9ifBYckRht6xQ\"}', 1);
+(1, 'google-oauth2', 'agus21apy@gmail.com', '{\"auth_time\": 1589033684, \"expires\": 3599, \"token_type\": \"Bearer\", \"access_token\": \"ya29.a0Ae4lvC1Fqv827DVy_IxPHTQU66qdIn0AHu-G4a5IJ8PApPe0p-4WN3r_pkKpUxBOsFlkkEYYnaCTvpuNCbYnDi-wluIynqwLxjVkGGZU3BJ-GclQK1dT5I_HC0lWium9lSHxVdwqf-af6r--iSd7cgt221DP9uIA3FU\"}', 1),
+(2, 'google-oauth2', 'agusyogi600@gmail.com', '{\"auth_time\": 1586413119, \"expires\": 3599, \"token_type\": \"Bearer\", \"access_token\": \"ya29.a0Ae4lvC05hUF0DJumIJtT9YENS4hi5d_VE7gEGfQ6gVHWnVj_7xBWubXnaEyDgUGcNojjsEk8wT_J1yj8j9Ex7TeVcHBKe15EnANwt0VAnJ9EinLYemHQDfFIQs9Wxckv1VW-jS3lH17SVI6RynsYePVtejKs7l8DG5M\"}', 3);
 
 --
 -- Indexes for dumped tables
@@ -454,10 +507,22 @@ ALTER TABLE `django_session`
   ADD KEY `django_session_expire_date_a5c62663` (`expire_date`);
 
 --
+-- Indexes for table `kunci`
+--
+ALTER TABLE `kunci`
+  ADD PRIMARY KEY (`kid`);
+
+--
 -- Indexes for table `login_post`
 --
 ALTER TABLE `login_post`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `soal`
+--
+ALTER TABLE `soal`
+  ADD PRIMARY KEY (`sid`);
 
 --
 -- Indexes for table `social_auth_association`
@@ -518,13 +583,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -548,19 +613,31 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `kunci`
+--
+ALTER TABLE `kunci`
+  MODIFY `kid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `login_post`
 --
 ALTER TABLE `login_post`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `soal`
+--
+ALTER TABLE `soal`
+  MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `social_auth_association`
@@ -590,7 +667,7 @@ ALTER TABLE `social_auth_partial`
 -- AUTO_INCREMENT for table `social_auth_usersocialauth`
 --
 ALTER TABLE `social_auth_usersocialauth`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

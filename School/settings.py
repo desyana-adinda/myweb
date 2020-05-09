@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'crispy_forms',
-    'login',
-    'Guru',
-    'Murid'
+    'login.apps.LoginConfig',
+    'Guru.apps.GuruConfig',
+    'Murid.apps.MuridConfig'
 ]
 
 MIDDLEWARE = [

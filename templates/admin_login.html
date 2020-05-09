@@ -27,7 +27,7 @@
 
 <body id="page-top">
   {% if user.is_authenticated %}
-    {% if user.is_superuser == 0 %}
+    {% if user.is_staff == 0 %}
     <script>
       document.location.href = "{% url 'murid' %}";
     </script>

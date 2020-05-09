@@ -28,10 +28,10 @@
 
 <body id="page-top">
   {% if user.is_authenticated %}
-  {% if user.is_superuser == 0 %}
-    <script>
-      document.location.href = "{% url 'murid' %}";
-    </script>
+  {% if user.is_staff == 0 %}
+  <script>
+    document.location.href = "{% url 'murid' %}";
+  </script>
   {% endif %}
   {% include 'navbar/admin_navbar.html' %}
   <!-- Topbar -->
@@ -148,6 +148,10 @@
 
   <!-- Page level custom scripts -->
   <script src="{% static 'js/demo/datatables-demo.js' %} "></script>
+  <script>
+    var rand = `{{user.id}}`
+    $('#kodetugas').attr('value', rand)
+  </script>
 
 </body>
 

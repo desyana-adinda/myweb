@@ -27,7 +27,7 @@
 <body id="page-top">
   <div class="jumbotron">
     {% if user.is_authenticated %}
-        {% if user.is_superuser == 1 %}
+        {% if user.is_staff == 1 %}
         <script>
           document.location.href = "{% url 'guru' %}";
         </script>
